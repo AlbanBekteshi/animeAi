@@ -9,7 +9,6 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
 const upload = multer({ dest: "uploads/" });
 
 app.use(express.static("public"));
@@ -155,6 +154,7 @@ app.post("/generate", upload.single("image"), async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`🚀 Serveur lancé sur http://localhost:${port}`);
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => {
+    console.log(`🚀 Serveur lancé sur http://0.0.0.0:${port}`);
 });
