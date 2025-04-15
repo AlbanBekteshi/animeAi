@@ -23,6 +23,10 @@ app.use(cors({
     methods: ["POST", "GET"],
     allowedHeaders: ["Content-Type"]
 }));
+
+app.get("/", (req, res) => {
+    res.send("Hello depuis Render 🚀");
+});
 app.post("/generate", upload.single("image"), async (req, res) => {
     console.log("Début traitement");
     const style = req.body.style || "Ghibli";
