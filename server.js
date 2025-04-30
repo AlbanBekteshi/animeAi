@@ -14,8 +14,11 @@ const upload = multer({ dest: "uploads/" });
 app.use(express.static("public"));
 app.use(express.json());
 
-const HF_TOKEN = process.env.HF_TOKEN; // Token Hugging Face
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Assure-toi qu’il est bien défini dans ton .env
+const HF_TOKEN = process.env.HF_TOKEN;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+console.log(`HF TOKEN ${HF_TOKEN}`)
+console.log(`Open AI ${OPENAI_API_KEY}`)
 
 app.use(cors({
     origin: "*", // ⚠️ en production, mets l’URL de ta boutique pour sécuriser !
